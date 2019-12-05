@@ -1,6 +1,10 @@
 {
-	"name": "logigator-shared-comps",
-	"version": "0.0.1",
+	"name": "@logigator/logigator-shared-comps",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/logigator/logigator-shared-comps.git"
+	},
+	"version": "0.0.2",
 	"peerDependencies": {
 		"@angular/common": "^8.2.14",
 		"@angular/core": "^8.2.14",
