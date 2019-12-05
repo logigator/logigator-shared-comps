@@ -7,7 +7,7 @@
 			"projectType": "library",
 			"root": "projects/logigator-shared-comps",
 			"sourceRoot": "projects/logigator-shared-comps/src",
-			"prefix": "lib",
+			"prefix": "logi",
 			"architect": {
 				"build": {
 					"builder": "@angular-devkit/build-ng-packagr:build",

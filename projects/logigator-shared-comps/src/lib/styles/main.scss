@@ -1,0 +1,19 @@
+@import "themes";
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+* {
+	box-sizing: border-box;
+	font-family: Roboto, Nunito, Arial, sans-serif;
+}
+
+@include themify() {
+	* {
+		color: themed('text-primary');
+	}
+}

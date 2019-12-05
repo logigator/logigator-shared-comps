@@ -1,0 +1,8 @@
+@import "../../styles/themes";
+@include themify() {
+	logi-input-error > div {
+		margin-top: 0.25rem;
+		font-size: 0.9rem;
+		color: themed('error');
+	}
+}

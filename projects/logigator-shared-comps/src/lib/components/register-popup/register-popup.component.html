@@ -1,0 +1,47 @@
+<form [formGroup]="registerForm" (ngSubmit)="submit()" autocomplete="off">
+	<h3> {{'POPUP.REGISTER.HEADLINE' | translate}} </h3>
+
+	<logi-input type="text" formControlName="email" label="{{'POPUP.REGISTER.EMAIL' | translate}}">
+		<logi-input-error error="required">{{'POPUP.REGISTER.EMAIL_ERR_REQUIRED' | translate}}</logi-input-error>
+		<logi-input-error error="email">{{'POPUP.REGISTER.EMAIL_ERR_INVALID' | translate}}</logi-input-error>
+	</logi-input>
+	<logi-input type="password" formControlName="password" label="{{'POPUP.REGISTER.PASSWORD' | translate}}">
+		<logi-input-error error="required">{{'POPUP.REGISTER.PASSWORD_ERR_REQUIRED' | translate}}</logi-input-error>
+		<logi-input-error error="minlength">{{'POPUP.REGISTER.PASSWORD_ERR_MIN' | translate}}</logi-input-error>
+		<logi-input-error error="pattern">{{'POPUP.REGISTER.PASSWORD_ERR_COMPLEXITY' | translate}}</logi-input-error>
+	</logi-input>
+	<logi-input type="password" formControlName="confirm_password"
+			   label="{{'POPUP.REGISTER.PASSWORD_REPEAT' | translate}}">
+		<logi-input-error
+			*ngIf="registerForm.errors?.passwordMatch">{{'POPUP.REGISTER.PASSWORD_REPEAT_ERR' | translate}}</logi-input-error>
+	</logi-input>
+	<logi-input type="text" formControlName="username" label="Username">
+		<logi-input-error error="required">{{'POPUP.REGISTER.USERNAME_ERR_REQUIRED' | translate}}</logi-input-error>
+		<logi-input-error error="minlength">{{'POPUP.REGISTER.USERNAME_ERR_MIN' | translate}}</logi-input-error>
+		<logi-input-error error="maxlength">{{'POPUP.REGISTER.USERNAME_ERR_MAX' | translate}}</logi-input-error>
+	</logi-input>
+	<p class="agreement"> {{'POPUP.REGISTER.PRIVACY_POLICY' | translate}} </p>
+	<p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
+
+	<button type="submit" class="btn-raised primary"
+			[disabled]="registerForm.invalid">{{'POPUP.REGISTER.REGISTER_BUTTON' | translate}}</button>
+
+	<div class="login-divider">
+		<div class="divider"></div>
+		<div>
+			{{'POPUP.REGISTER.OR' | translate}}
+		</div>
+		<div class="divider"></div>
+	</div>
+
+	<div class="social-media-login">
+		<button class="btn-raised primary social-button google" (click)="loginGoogle()">
+			GOOGLE
+			<img class="btn-raised secondary" src="assets/icons/dark/google.svg" alt="google login icon">
+		</button>
+		<button class="btn-raised primary social-button twitter" (click)="loginTwitter()">
+			TWITTER
+			<img class="btn-raised secondary" src="assets/icons/dark/twitter.svg" alt="twitter login icon">
+		</button>
+	</div>
+</form>
