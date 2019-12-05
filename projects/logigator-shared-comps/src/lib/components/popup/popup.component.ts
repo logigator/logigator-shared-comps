@@ -25,6 +25,9 @@ export class PopupComponent implements OnInit {
 	public title: string;
 
 	@Input()
+	public titleTranslationParams: { [key: string]: string};
+
+	@Input()
 	public contentComp: ComponentFactory<PopupContentComp>;
 
 	@Input()
