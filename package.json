@@ -3,9 +3,8 @@
 	"version": "0.0.0",
 	"scripts": {
 		"ng": "ng",
-		"start": "ng serve",
+		"start": "ng build --watch",
 		"build": "ng build",
-		"watch": "ng build --watch",
 		"publish-package": "npm run bump-version && npm run build && npm run publish-to-github",
 		"bump-version": "cd projects/logigator-shared-comps && npm version patch --no-git-tag-version",
 		"publish-to-github": "cd dist/logigator-shared-comps && npm pack && npm publish",

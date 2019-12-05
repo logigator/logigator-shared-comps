@@ -1,4 +1,4 @@
-$themes: (
+$defaultThemes: (
 	light: (
 		background: #F5F5F5,
 		primary: #2ECC71,
@@ -20,6 +20,23 @@ $themes: (
 		button-text: #000000
 	)
 );
+
+@function deep-map-merge($parent-map, $child-map) {
+	$result: $parent-map;
+	@each $key, $value in $child-map {
+		@if (not map-has-key($result, $key)) or (type-of(map-get($result, $key)) != type-of($value)) or (not (type-of(map-get($result, $key)) == map and type-of($value) == map)) {
+			$result: map-merge($result, ($key: $value));
+		}
+		@else {
+			$result: map-merge($result, ($key: deep-map-merge(map-get($result, $key), $value)));
+		}
+	}
+	@return $result;
+}
+
+$themeOverrides: () !default;
+
+$themes: deep-map-merge($defaultThemes, $themeOverrides);
 
 $border-styles: (
 	width: 1px,

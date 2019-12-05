@@ -33,12 +33,8 @@ export class PopupService {
 		titleTranslationParams?: { [key: string]: string}
 	): Promise<any> {
 		return new Promise<void>(resolve => {
-			let popupFactory: ComponentFactory<PopupComponent>;
-			if (componentFactoryResolver) {
-				popupFactory = componentFactoryResolver.resolveComponentFactory(PopupComponent);
-			} else {
-				popupFactory = this.componentFactoryResolver.resolveComponentFactory(PopupComponent);
-			}
+			componentFactoryResolver = componentFactoryResolver ? componentFactoryResolver : this.componentFactoryResolver;
+			const popupFactory = componentFactoryResolver.resolveComponentFactory(PopupComponent);
 			const popupRef = popupFactory.create(this.injector);
 			popupRef.instance.title = title;
 			popupRef.instance.titleTranslationParams = titleTranslationParams;
