@@ -1,6 +1,7 @@
-import {Component, forwardRef, OnInit} from '@angular/core';
+import { Component, forwardRef, OnInit } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
+import {ThemingService} from '../../services/theming.service';
 
 @Component({
 	selector: 'logi-file-input',
@@ -18,14 +19,15 @@ export class FileInputComponent implements OnInit, ControlValueAccessor {
 
 	public isDragging = false;
 	public isDisabled = false;
+	public currTheme: string;
 
 	public onChange = (value: File) => {};
 	public onTouch = () => {};
 
-	constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient, private theme: ThemingService) { }
 
-	async ngOnInit() {
-
+	ngOnInit() {
+		this.currTheme = this.theme.currentTheme;
 	}
 
 	registerOnChange(fn: any): void {

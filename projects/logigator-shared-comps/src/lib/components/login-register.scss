@@ -1,15 +1,16 @@
-@import "../styles/themes";
+@import "../../../styles/themes";
 
 form {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	max-width: 50rem;
 
-	width: 400px;
 	@media (max-width: 767px) {
 		width: 100%;
-		padding: 0;
+		padding: 1rem;
 	}
+
 	padding: 2rem;
 	margin: auto;
 
@@ -81,7 +82,5 @@ form {
 				background-color: #1da1f2;
 			}
 		}
-
-
 	}
 }

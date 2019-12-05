@@ -15,4 +15,7 @@ export * from './lib/components/register-popup/register-popup.component';
 
 export * from './lib/services/popup/popup.service';
 
+export {ThemingService as SharedCompsThemingService} from './lib/services/theming.service';
+export {AuthService as SharedCompsAuthService} from './lib/services/auth.service';
+
 export * from './lib/logigator-shared-comps.module';

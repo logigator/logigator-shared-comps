@@ -51,14 +51,8 @@ export class LogigatorSharedCompsModule {
 		return {
 			ngModule: LogigatorSharedCompsModule,
 			providers: [
-				{
-					provide: ThemingService,
-					useExisting: config.themingService
-				},
-				{
-					provide: AuthService,
-					useExisting: config.authService
-				}
+				config.authService,
+				config.themingService
 			]
 		};
 	}
