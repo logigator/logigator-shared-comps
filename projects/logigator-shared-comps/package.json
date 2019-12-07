@@ -4,6 +4,8 @@
 		"type": "git",
 		"url": "git://github.com/logigator/logigator-shared-comps.git"
 	},
+	"license": "MIT",
+	"description": "Component library for Logigator",
 	"private": false,
 	"version": "0.0.7",
 	"peerDependencies": {
