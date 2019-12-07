@@ -9,7 +9,7 @@
 		"build": "ng build",
 		"publish-package": "npm run bump-version && npm run build && npm run publish-to-npm",
 		"bump-version": "cd projects/logigator-shared-comps && npm version patch --no-git-tag-version",
-		"publish-to-npm": "cd dist/logigator-shared-comps && npm publish",
+		"publish-to-npm": "cd dist/logigator-shared-comps && npm publish --access public",
 		"test": "ng test",
 		"lint": "ng lint",
 		"e2e": "ng e2e"
