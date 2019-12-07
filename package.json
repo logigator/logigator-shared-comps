@@ -1,13 +1,15 @@
 {
 	"name": "@logigator/logigator-shared-comps",
 	"version": "0.0.0",
+	"license": "MIT",
+	"description": "Component library for Logigator",
 	"scripts": {
 		"ng": "ng",
 		"start": "ng build --watch",
 		"build": "ng build",
-		"publish-package": "npm run bump-version && npm run build && npm run publish-to-github",
+		"publish-package": "npm run bump-version && npm run build && npm run publish-to-npm",
 		"bump-version": "cd projects/logigator-shared-comps && npm version patch --no-git-tag-version",
-		"publish-to-github": "cd dist/logigator-shared-comps && npm pack && npm publish",
+		"publish-to-npm": "cd dist/logigator-shared-comps && npm publish",
 		"test": "ng test",
 		"lint": "ng lint",
 		"e2e": "ng e2e"
