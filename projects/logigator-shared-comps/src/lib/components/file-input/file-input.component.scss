@@ -10,11 +10,11 @@
 
 	width: 100%;
 	height: 100%;
-	background-color: white;
 	cursor: pointer;
 
 	@include themify() {
 		border: 2px dashed themed('primary');
+		background-color: themed('accent2');
 	}
 
 	input {
@@ -24,7 +24,9 @@
 	p {
 		transition: all 0.5s ease;
 		margin: 0;
-		color: black;
+		@include themify() {
+			color: themed('text-primary');
+		}
 	}
 
 	img {
