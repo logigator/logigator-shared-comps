@@ -107,13 +107,13 @@ $border-styles: (
 	{
 		border-radius: 2px;
 		@include themify() {
-			background-color: themed('secondary');
+			background-color: themed('accent2');
 		}
 	}
 
 	scrollbar-width: thin;
 	@include themify() {
-		scrollbar-color: themed('secondary') themed('background');
+		scrollbar-color: themed('accent2') themed('background');
 	}
 
 }
