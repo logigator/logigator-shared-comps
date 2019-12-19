@@ -8,8 +8,10 @@
      (drop)="onDrop($event)"
      (click)="fileInput.click()"
      [class.dragging]="isDragging"
+     [class.disabled]="isDisabled"
+     [class.enabled]="!isDisabled"
      class="upload-container">
-	<input type="file" #fileInput (change)="fileChange($event)">
+	<input type="file" #fileInput (change)="fileChange($event)" [accept]="accept" [disabled]="isDisabled">
 	<img *ngIf="currTheme === 'light'" src="/assets/icons/light/cloud_upload.svg">
 	<img *ngIf="currTheme === 'dark'" src="/assets/icons/dark/cloud_upload.svg">
 	<p>Drop your files here.</p>

@@ -1,4 +1,4 @@
-import { Component, forwardRef, OnInit } from '@angular/core';
+import {Component, forwardRef, Input, OnInit} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {ThemingService} from '../../services/theming.service';
@@ -16,6 +16,9 @@ import {ThemingService} from '../../services/theming.service';
 	]
 })
 export class FileInputComponent implements OnInit, ControlValueAccessor {
+
+	@Input()
+	public accept = '*';
 
 	public isDragging = false;
 	public isDisabled = false;
