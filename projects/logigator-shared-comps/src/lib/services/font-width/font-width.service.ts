@@ -17,7 +17,7 @@ export class FontWidthService {
 		this.canvas = document.createElement('canvas');
 	}
 
-	public getTextWidth(text: string, size: number, font?: string): number {
+	public getTextWidth(text: string, font?: string): number {
 		if (isPlatformBrowser(this.platformId))
 			return 1;
 
