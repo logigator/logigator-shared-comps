@@ -7,6 +7,7 @@ import {
 	PLATFORM_ID, SimpleChanges
 } from '@angular/core';
 import {FontWidthService} from '../../services/font-width/font-width.service';
+import {isPlatformBrowser} from '@angular/common';
 
 @Directive({
 	selector: '[logiAutoFontSize]'
@@ -37,6 +38,8 @@ export class AutoFontSizeDirective implements AfterContentChecked, OnChanges {
 	}
 
 	private adjustFontSize() {
+		if (!isPlatformBrowser(this.platformId)) return;
+
 		const text = this.elementRef.nativeElement.innerText;
 		const style = window.getComputedStyle(this.elementRef.nativeElement);
 		const textWidth = this.fontWidthService.getTextWidth(text, style.font);
