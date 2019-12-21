@@ -11,14 +11,14 @@ export class FontWidthService {
 		@Inject(PLATFORM_ID) private platformId: string,
 		@Inject(DOCUMENT) private document: Document
 	) {
-		if (isPlatformBrowser(this.platformId))
+		if (!isPlatformBrowser(this.platformId))
 			return;
 
 		this.canvas = document.createElement('canvas');
 	}
 
-	public getTextWidth(text: string, size: number, font?: string): number {
-		if (isPlatformBrowser(this.platformId))
+	public getTextWidth(text: string, font?: string): number {
+		if (!isPlatformBrowser(this.platformId))
 			return 1;
 
 		const context = this.canvas.getContext('2d');
