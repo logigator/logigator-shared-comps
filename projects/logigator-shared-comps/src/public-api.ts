@@ -14,6 +14,7 @@ export * from './lib/components/login-popup/login-popup.component';
 export * from './lib/components/register-popup/register-popup.component';
 
 export * from './lib/services/popup/popup.service';
+export * from './lib/services/font-width/font-width.service';
 
 export {ThemingService as SharedCompsThemingService} from './lib/services/theming.service';
 export {AuthService as SharedCompsAuthService} from './lib/services/auth.service';
