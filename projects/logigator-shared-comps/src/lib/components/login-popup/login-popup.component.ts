@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {PopupContentComp} from '../popup/popup-content-comp';
 import {AuthService} from '../../services/auth.service';
+import {LoginErrorResolverService} from '../../services/login-error-resolver/login-error-resolver.service';
 
 @Component({
 	selector: 'logi-login-popup',
@@ -17,6 +18,7 @@ export class LoginPopupComponent extends PopupContentComp implements OnInit {
 	constructor(
 		private formBuilder: FormBuilder,
 		private auth: AuthService,
+		private loginErrorResolverService: LoginErrorResolverService,
 		@Optional() private router: Router
 	) {
 		super();
@@ -32,31 +34,34 @@ export class LoginPopupComponent extends PopupContentComp implements OnInit {
 	public async submit() {
 		if (this.loginForm.invalid)
 			return;
-		this.auth.loginEmail(this.loginForm.controls.user.value, this.loginForm.controls.password.value).then(() => {
+
+		try {
+			await this.auth.loginEmail(this.loginForm.controls.user.value, this.loginForm.controls.password.value);
 			this.requestClose.emit();
-		}).catch(e => {
-			switch (e.status) {
-				case 401:
-					this.errorMessage = 'Incorrect username or password.';
-					break;
-				default:
-					this.errorMessage = 'We\'re sorry, an unknown error occurred while trying to log you in. :(';
-					break;
-			}
-			if (this.router) this.router.navigate(['my']);
-		});
+			if (this.router) await this.router.navigate(['my']);
+		} catch (e) {
+			this.errorMessage = await this.loginErrorResolverService.getErrorMessage(e);
+		}
 	}
 
 	public async loginGoogle() {
-		await this.auth.authenticateGoogle();
-		this.requestClose.emit();
-		if (this.router) await this.router.navigate(['my']);
+		try {
+			await this.auth.authenticateGoogle();
+			this.requestClose.emit();
+			if (this.router) await this.router.navigate(['my']);
+		} catch (e) {
+			this.errorMessage = await this.loginErrorResolverService.getErrorMessage(e);
+		}
 	}
 
 	public async loginTwitter() {
-		await this.auth.authenticateTwitter();
-		this.requestClose.emit();
-		if (this.router) await this.router.navigate(['my']);
+		try {
+			await this.auth.authenticateTwitter();
+			this.requestClose.emit();
+			if (this.router) await this.router.navigate(['my']);
+		} catch (e) {
+			this.errorMessage = await this.loginErrorResolverService.getErrorMessage(e);
+		}
 	}
 
 }

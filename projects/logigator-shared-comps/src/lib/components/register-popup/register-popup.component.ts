@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PopupContentComp} from '../popup/popup-content-comp';
 import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
+import {LoginErrorResolverService} from '../../services/login-error-resolver/login-error-resolver.service';
 
 @Component({
 	selector: 'logi-register-popup',
@@ -17,6 +18,7 @@ export class RegisterPopupComponent extends PopupContentComp implements OnInit {
 	constructor(
 		private formBuilder: FormBuilder,
 		private auth: AuthService,
+		private loginErrorResolverService: LoginErrorResolverService,
 		@Optional() private router: Router
 	) {
 		super();
@@ -50,34 +52,36 @@ export class RegisterPopupComponent extends PopupContentComp implements OnInit {
 		// @ts-ignore
 		grecaptcha.ready(() => {
 			// @ts-ignore
-			grecaptcha.execute('6Le9BbgUAAAAAHJupU1XiAa8n1Z0M2YFHL89OMMp', {action: 'register'}).then((token) => {
-				// tslint:disable-next-line:max-line-length
-				this.auth.registerEmail(this.registerForm.controls.username.value, this.registerForm.controls.email.value, this.registerForm.controls.password.value, token).then(() => {
+			grecaptcha.execute('6Le9BbgUAAAAAHJupU1XiAa8n1Z0M2YFHL89OMMp', {action: 'register'}).then(async (token) => {
+				try {
+					// tslint:disable-next-line:max-line-length
+					await this.auth.registerEmail(this.registerForm.controls.username.value, this.registerForm.controls.email.value, this.registerForm.controls.password.value, token);
 					this.requestClose.emit();
-				}).catch(e => {
-					switch (e.status) {
-						case 401:
-							this.errorMessage = 'Incorrect email or password.';
-							break;
-						default:
-							this.errorMessage = 'We\'re sorry, an unknown error occurred while trying to log you in. :(';
-							break;
-					}
-				});
-				if (this.router) this.router.navigate(['my']);
+					if (this.router) await this.router.navigate(['my']);
+				} catch (e) {
+					this.errorMessage = await this.loginErrorResolverService.getErrorMessage(e);
+				}
 			});
 		});
 	}
 
 	public async loginGoogle() {
-		await this.auth.authenticateGoogle();
-		this.requestClose.emit();
-		if (this.router) await this.router.navigate(['my']);
+		try {
+			await this.auth.authenticateGoogle();
+			this.requestClose.emit();
+			if (this.router) await this.router.navigate(['my']);
+		} catch (e) {
+			this.errorMessage = await this.loginErrorResolverService.getErrorMessage(e);
+		}
 	}
 
 	public async loginTwitter() {
-		await this.auth.authenticateTwitter();
-		this.requestClose.emit();
-		if (this.router) await this.router.navigate(['my']);
+		try {
+			await this.auth.authenticateGoogle();
+			this.requestClose.emit();
+			if (this.router) await this.router.navigate(['my']);
+		} catch (e) {
+			this.errorMessage = await this.loginErrorResolverService.getErrorMessage(e);
+		}
 	}
 }
