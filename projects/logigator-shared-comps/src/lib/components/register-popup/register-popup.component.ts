@@ -15,6 +15,8 @@ export class RegisterPopupComponent extends PopupContentComp implements OnInit {
 	public registerForm: FormGroup;
 	public errorMessage = '';
 
+	public showSuccessMessage = false;
+
 	constructor(
 		private formBuilder: FormBuilder,
 		private auth: AuthService,
@@ -56,8 +58,7 @@ export class RegisterPopupComponent extends PopupContentComp implements OnInit {
 				try {
 					// tslint:disable-next-line:max-line-length
 					await this.auth.registerEmail(this.registerForm.controls.username.value, this.registerForm.controls.email.value, this.registerForm.controls.password.value, token);
-					this.requestClose.emit();
-					if (this.router) await this.router.navigate(['my']);
+					this.showSuccessMessage = true;
 				} catch (e) {
 					this.errorMessage = await this.loginErrorResolverService.getErrorMessage(e);
 				}

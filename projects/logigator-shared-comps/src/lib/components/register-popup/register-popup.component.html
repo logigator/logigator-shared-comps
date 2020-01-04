@@ -1,4 +1,4 @@
-<form [formGroup]="registerForm" (ngSubmit)="submit()" autocomplete="off">
+<form [formGroup]="registerForm" (ngSubmit)="submit()" autocomplete="off" *ngIf="!showSuccessMessage; else registerSuccess">
 	<h3> {{'POPUP.REGISTER.HEADLINE' | translate}} </h3>
 
 	<logi-input type="text" formControlName="email" label="{{'POPUP.REGISTER.EMAIL' | translate}}">
@@ -45,3 +45,10 @@
 		</button>
 	</div>
 </form>
+
+<ng-template #registerSuccess>
+	<div class="registration-success">
+		<h3>{{'POPUP.REGISTER.SUCCESS_1' | translate}}</h3>
+		<p>{{'POPUP.REGISTER.SUCCESS_2' | translate}}</p>
+	</div>
+</ng-template>
