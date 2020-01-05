@@ -11,8 +11,8 @@ export class AccountActionErrorResolverService {
 
 	public getErrorMessage(error: HttpErrorResponse): Promise<string> {
 		if (!['NO_USER', 'EMAIL_NOT_VERIFIED', 'INVALID_PW', 'EMAIL_TAKEN', 'USERNAME_TAKEN', 'MAX_FILE_SIZE']
-			.includes(error.error.error.description))
-		{
+			.includes(error.error.error.description)
+		) {
 			return this.translate.get('ERROR.ACCOUNT.OTHER').toPromise();
 		}
 		return this.translate.get('ERROR.ACCOUNT.' + error.error.error.description).toPromise();
