@@ -15,7 +15,7 @@ export class RegisterPopupComponent extends PopupContentComp implements OnInit {
 	public registerForm: FormGroup;
 	public errorMessage = '';
 
-	public showSuccessMessage = false;
+	public showSuccessMessage = true;
 
 	constructor(
 		private formBuilder: FormBuilder,
@@ -84,5 +84,9 @@ export class RegisterPopupComponent extends PopupContentComp implements OnInit {
 		} catch (e) {
 			this.errorMessage = await this.loginErrorResolverService.getErrorMessage(e);
 		}
+	}
+
+	public close() {
+		this.requestClose.emit();
 	}
 }
