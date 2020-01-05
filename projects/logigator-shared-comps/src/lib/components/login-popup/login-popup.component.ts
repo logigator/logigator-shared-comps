@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {PopupContentComp} from '../popup/popup-content-comp';
 import {AuthService} from '../../services/auth.service';
-import {LoginErrorResolverService} from '../../services/login-error-resolver/login-error-resolver.service';
+import {AccountActionErrorResolverService} from '../../services/account-action-error-resolver/account-action-error-resolver.service';
 
 @Component({
 	selector: 'logi-login-popup',
@@ -18,7 +18,7 @@ export class LoginPopupComponent extends PopupContentComp implements OnInit {
 	constructor(
 		private formBuilder: FormBuilder,
 		private auth: AuthService,
-		private loginErrorResolverService: LoginErrorResolverService,
+		private loginErrorResolverService: AccountActionErrorResolverService,
 		@Optional() private router: Router
 	) {
 		super();
