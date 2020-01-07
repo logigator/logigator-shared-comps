@@ -1,28 +1,7 @@
 @import '../login-register';
 @import "../../../../styles/themes";
 
-.error {
-	font-size: 1rem;
-	margin-top: 0;
-	@include themify() {
-		color: themed('error');
-	}
-}
-
 .agreement{
 	font-size: 1rem;
 	margin-top: 0;
-}
-
-.registration-success {
-	margin: 1rem;
-
-	h3 {
-		font-size: 1.6rem;
-		margin-bottom: 0.5rem;
-	}
-
-	p {
-		margin-top: 1rem;
-	}
 }

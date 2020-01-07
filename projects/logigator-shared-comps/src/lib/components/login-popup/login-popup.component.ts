@@ -15,6 +15,9 @@ export class LoginPopupComponent extends PopupContentComp implements OnInit {
 	public loginForm: FormGroup;
 	public errorMessage = '';
 
+	public showResendButton = false;
+	public showResendSuccessMessage = false;
+
 	constructor(
 		private formBuilder: FormBuilder,
 		private auth: AuthService,
@@ -40,6 +43,7 @@ export class LoginPopupComponent extends PopupContentComp implements OnInit {
 			this.requestClose.emit();
 			if (this.router) await this.router.navigate(['my']);
 		} catch (e) {
+			if (e.error.error.description === 'EMAIL_NOT_VERIFIED') this.showResendButton = true;
 			this.errorMessage = await this.loginErrorResolverService.getErrorMessage(e);
 		}
 	}
@@ -64,4 +68,16 @@ export class LoginPopupComponent extends PopupContentComp implements OnInit {
 		}
 	}
 
+	public async resendVerificationMail() {
+		try {
+			await this.auth.resendVerificationMail(this.loginForm.controls.user.value, this.loginForm.controls.password.value);
+			this.showResendSuccessMessage = true;
+		} catch (e) {
+			this.errorMessage = await this.loginErrorResolverService.getErrorMessage(e);
+		}
+	}
+
+	public close() {
+		this.requestClose.emit();
+	}
 }

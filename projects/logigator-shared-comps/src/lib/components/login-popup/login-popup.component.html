@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm" (ngSubmit)="submit()" autocomplete="off">
+<form [formGroup]="loginForm" (ngSubmit)="submit()" autocomplete="off" *ngIf="!showResendSuccessMessage; else resendSuccess">
 	<h3> {{'POPUP.LOGIN.HEADLINE' | translate}} </h3>
 
 	<logi-input type="text" formControlName="user" label="{{'POPUP.LOGIN.USERNAME' | translate}}">
@@ -9,7 +9,11 @@
 		<logi-input-error error="required"> {{'POPUP.LOGIN.PASSWORD_ERR_REQUIRED' | translate}}</logi-input-error>
 	</logi-input>
 
-	<p class="error">{{errorMessage}}</p>
+	<div class="error-container">
+		<p class="error">{{errorMessage}}</p>
+		<button type="button" class="btn-outline secondary" *ngIf="showResendButton" (click)="resendVerificationMail()">{{'POPUP.LOGIN.RESEND_BUTTON' | translate}}</button>
+	</div>
+
 
 	<button type="submit" class="btn-raised primary" [disabled]="loginForm.invalid">{{'POPUP.LOGIN.LOGIN_BUTTON' | translate}}</button>
 
@@ -32,3 +36,11 @@
 		</button>
 	</div>
 </form>
+
+<ng-template #resendSuccess>
+	<div class="action-success">
+		<h3>{{'POPUP.LOGIN.RESEND_SUCCESS_1' | translate}}</h3>
+		<p>{{'POPUP.LOGIN.RESEND_SUCCESS_2' | translate}}</p>
+		<button type="button" class="btn-raised primary" (click)="close()">{{'POPUP.LOGIN.RESEND_SUCCESS_OK_BUTTON' | translate}}</button>
+	</div>
+</ng-template>

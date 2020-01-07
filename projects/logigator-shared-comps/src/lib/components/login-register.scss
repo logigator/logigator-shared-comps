@@ -14,7 +14,27 @@ form {
 	padding: 2rem;
 	margin: auto;
 
-	button {
+	.error-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 1rem;
+
+		.error {
+			font-size: 1rem;
+			margin: 0;
+			@include themify() {
+				color: themed('error');
+			}
+		}
+
+		button {
+			margin-left: 1rem;
+		}
+	}
+
+	button[type=submit] {
 		padding: 0.7rem;
 	}
 
@@ -75,5 +95,18 @@ form {
 				background-color: #1da1f2;
 			}
 		}
+	}
+}
+
+.action-success {
+	margin: 1rem;
+
+	h3 {
+		font-size: 1.6rem;
+		margin-bottom: 0.5rem;
+	}
+
+	p {
+		margin-top: 1rem;
 	}
 }
