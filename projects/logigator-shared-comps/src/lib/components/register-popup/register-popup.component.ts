@@ -15,7 +15,7 @@ export class RegisterPopupComponent extends PopupContentComp implements OnInit {
 	public registerForm: FormGroup;
 	public errorMessage = '';
 
-	public showSuccessMessage = true;
+	public showSuccessMessage = false;
 
 	constructor(
 		private formBuilder: FormBuilder,

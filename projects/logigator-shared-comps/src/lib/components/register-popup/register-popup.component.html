@@ -20,7 +20,9 @@
 		<logi-input-error error="minlength">{{'POPUP.REGISTER.USERNAME_ERR_MIN' | translate}}</logi-input-error>
 		<logi-input-error error="maxlength">{{'POPUP.REGISTER.USERNAME_ERR_MAX' | translate}}</logi-input-error>
 	</logi-input>
-	<p class="error">{{errorMessage}}</p>
+	<div class="error-container">
+		<p class="error">{{errorMessage}}</p>
+	</div>
 	<p class="agreement"> {{'POPUP.REGISTER.PRIVACY_POLICY' | translate}} </p>
 
 	<button type="submit" class="btn-raised primary"
