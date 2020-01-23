@@ -39,8 +39,10 @@
 
 <ng-template #resendSuccess>
 	<div class="action-success">
-		<h3>{{'POPUP.LOGIN.RESEND_SUCCESS_1' | translate}}</h3>
-		<p>{{'POPUP.LOGIN.RESEND_SUCCESS_2' | translate}}</p>
-		<button type="button" class="btn-raised primary" (click)="close()">{{'POPUP.LOGIN.RESEND_SUCCESS_OK_BUTTON' | translate}}</button>
+		<div>
+			<h3>{{'POPUP.LOGIN.RESEND_SUCCESS_1' | translate}}</h3>
+			<p>{{'POPUP.LOGIN.RESEND_SUCCESS_2' | translate}}</p>
+			<button type="button" class="btn-raised primary" (click)="close()">{{'POPUP.LOGIN.RESEND_SUCCESS_OK_BUTTON' | translate}}</button>
+		</div>
 	</div>
 </ng-template>

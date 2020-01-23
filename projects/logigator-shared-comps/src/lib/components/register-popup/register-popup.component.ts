@@ -88,5 +88,6 @@ export class RegisterPopupComponent extends PopupContentComp implements OnInit {
 
 	public close() {
 		this.requestClose.emit();
+		if (this.router) this.router.navigate(['my']);
 	}
 }
