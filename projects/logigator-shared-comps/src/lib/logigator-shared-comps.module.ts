@@ -11,6 +11,7 @@ import {RegisterPopupComponent} from './components/register-popup/register-popup
 import {LoginPopupComponent} from './components/login-popup/login-popup.component';
 import {LogigatorSharedCompsConfig} from './logigator-shared-comps-config';
 import { AutoFontSizeDirective } from './directives/auto-font-size/auto-font-size.directive';
+import {SiPipe} from './pipes/si/si.pipe';
 
 
 
@@ -23,7 +24,8 @@ import { AutoFontSizeDirective } from './directives/auto-font-size/auto-font-siz
 		PopupComponent,
 		RegisterPopupComponent,
 		LoginPopupComponent,
-		AutoFontSizeDirective
+		AutoFontSizeDirective,
+		SiPipe
 	],
 	entryComponents: [
 		PopupComponent,
@@ -44,7 +46,8 @@ import { AutoFontSizeDirective } from './directives/auto-font-size/auto-font-siz
 		PopupComponent,
 		RegisterPopupComponent,
 		LoginPopupComponent,
-		AutoFontSizeDirective
+		AutoFontSizeDirective,
+		SiPipe
 	]
 })
 export class LogigatorSharedCompsModule {
