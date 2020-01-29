@@ -14,7 +14,7 @@ export * from './lib/components/login-popup/login-popup.component';
 export * from './lib/components/register-popup/register-popup.component';
 
 export * from './lib/directives/auto-font-size/auto-font-size.directive';
-export * from './lib/pipes/si/si.pipe'
+export * from './lib/pipes/si/si.pipe';
 
 export * from './lib/services/popup/popup.service';
 export * from './lib/services/font-width/font-width.service';
