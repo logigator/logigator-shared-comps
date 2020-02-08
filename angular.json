@@ -14,6 +14,11 @@
 					"options": {
 						"tsConfig": "projects/logigator-shared-comps/tsconfig.lib.json",
 						"project": "projects/logigator-shared-comps/ng-package.json"
+					},
+					"configurations": {
+						"ivy": {
+							"tsConfig": "projects/logigator-shared-comps/tsconfig.lib.ivy.json"
+						}
 					}
 				},
 				"test": {
@@ -37,6 +42,10 @@
 					}
 				}
 			}
-		}},
-	"defaultProject": "logigator-shared-comps"
+		}
+	},
+	"defaultProject": "logigator-shared-comps",
+	"cli": {
+		"analytics": "20a53d14-ae5e-4c69-97de-38ea8c349540"
+	}
 }

@@ -6,7 +6,7 @@ describe('AccountActionErrorResolverService', () => {
 	beforeEach(() => TestBed.configureTestingModule({}));
 
 	it('should be created', () => {
-		const service: AccountActionErrorResolverService = TestBed.get(AccountActionErrorResolverService);
+		const service: AccountActionErrorResolverService = TestBed.inject(AccountActionErrorResolverService);
 		expect(service).toBeTruthy();
 	});
 });
