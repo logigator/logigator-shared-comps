@@ -1,5 +1,6 @@
-import {EventEmitter, Input, Output} from '@angular/core';
+import { EventEmitter, Input, Output, Directive } from '@angular/core';
 
+@Directive()
 export abstract class PopupContentComp<T = any> {
 
 	@Output()

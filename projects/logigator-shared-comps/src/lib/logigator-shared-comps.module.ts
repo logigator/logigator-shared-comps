@@ -51,7 +51,7 @@ import {SiPipe} from './pipes/si/si.pipe';
 	]
 })
 export class LogigatorSharedCompsModule {
-	static forRoot(config: LogigatorSharedCompsConfig): ModuleWithProviders {
+	static forRoot(config: LogigatorSharedCompsConfig): ModuleWithProviders<LogigatorSharedCompsModule> {
 		return {
 			ngModule: LogigatorSharedCompsModule,
 			providers: [

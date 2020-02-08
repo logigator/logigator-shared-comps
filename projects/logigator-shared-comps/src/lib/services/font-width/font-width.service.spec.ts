@@ -6,7 +6,7 @@ describe('FontWidthService', () => {
 	beforeEach(() => TestBed.configureTestingModule({}));
 
 	it('should be created', () => {
-		const service: FontWidthService = TestBed.get(FontWidthService);
+		const service: FontWidthService = TestBed.inject(FontWidthService);
 		expect(service).toBeTruthy();
 	});
 });
