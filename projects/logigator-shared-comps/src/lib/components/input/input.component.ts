@@ -1,5 +1,5 @@
-import {ChangeDetectorRef, Component, forwardRef, Host, Input, OnInit, Optional, Self, SkipSelf} from '@angular/core';
-import {AbstractControl, ControlContainer, ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl} from '@angular/forms';
+import {ChangeDetectorRef, Component, forwardRef, Host, Input, OnInit, Optional, SkipSelf} from '@angular/core';
+import {AbstractControl, ControlContainer, ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
 	selector: 'logi-input',
@@ -22,12 +22,17 @@ export class InputComponent implements OnInit, ControlValueAccessor {
 	public type = 'text';
 
 	@Input()
+	public helpTooltip: string;
+
+	@Input()
 	public formControlName: string;
 
 	private control: AbstractControl;
 
 	public state: string;
 	public disabled = false;
+
+	public showTooltip = false;
 
 	private onChange = (value: unknown) => {};
 	private onTouched = () => {};

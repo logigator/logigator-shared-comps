@@ -5,8 +5,8 @@
 	"description": "Component library for Logigator",
 	"scripts": {
 		"ng": "ng",
-		"start": "ng build --watch",
-		"start:ivy": "ng build --watch -c ivy",
+		"start": "ng build --watch -c ivy",
+		"start:view-engine": "ng build --watch",
 		"build": "ng build",
 		"publish-package": "npm run bump-version && npm run build && npm run publish-to-npm",
 		"bump-version": "cd projects/logigator-shared-comps && npm version patch --no-git-tag-version",
