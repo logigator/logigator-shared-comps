@@ -38,7 +38,7 @@ export class RegisterPopupComponent extends PopupContentComp implements OnInit {
 				Validators.required
 			]],
 			username: ['', [
-				Validators.required, Validators.minLength(2), Validators.maxLength(20)
+				Validators.required, Validators.minLength(2), Validators.maxLength(20), Validators.pattern('^[a-zA-Z0-9_\\-]+$')
 			]],
 		}, {
 			validators: ((x: FormGroup) => {
