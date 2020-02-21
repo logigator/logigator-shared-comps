@@ -78,7 +78,7 @@ export class RegisterPopupComponent extends PopupContentComp implements OnInit {
 
 	public async loginTwitter() {
 		try {
-			await this.auth.authenticateGoogle();
+			await this.auth.authenticateTwitter();
 			this.requestClose.emit();
 			if (this.router) await this.router.navigate(['my']);
 		} catch (e) {
