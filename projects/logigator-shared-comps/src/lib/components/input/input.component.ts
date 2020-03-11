@@ -47,7 +47,7 @@ export class InputComponent implements OnInit, ControlValueAccessor {
 
 	public get invalid(): boolean {
 		if (!this.control)
-			return true;
+			return false;
 
 		return this.control.touched && this.control.invalid;
 	}
