@@ -20,8 +20,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - name: Build
-        - run: |
-            npm i
-            npm run publish-package-actions
-          env:
-            NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        run: |
+          npm i
+          npm run publish-package-actions
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
