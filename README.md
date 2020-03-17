@@ -11,5 +11,8 @@ To build the library run `npm run build`;
 To serve The library run `npm start`. You can then use the local version of the library in project to take advantage of live-reloading.
 In order to do so install the library with `npm i file:../logigator-shared-comps/dist/logigator-shared-comps`.
 
+## Publishing
+The Package is automatically published, when code is pushed to the master branch. Before you push code to master, please ensure that the version in `projects/logigator-shared-comps/package.json` is higher than the currently published version.
+
 ## License
 This Project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
