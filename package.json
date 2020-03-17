@@ -8,6 +8,7 @@
 		"start": "ng build --watch -c ivy",
 		"start:view-engine": "ng build --watch",
 		"build": "ng build",
+		"publish-package-actions": "npm run build && npm run publish-to-npm",
 		"publish-package": "npm run bump-version && npm run build && npm run publish-to-npm",
 		"bump-version": "cd projects/logigator-shared-comps && npm version patch --no-git-tag-version",
 		"publish-to-npm": "cd dist/logigator-shared-comps && npm publish --access public",
