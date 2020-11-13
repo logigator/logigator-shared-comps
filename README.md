@@ -1,4 +1,7 @@
-# LogigatorSharedComps
+# Moved 
+This package is no longer used, it's contents were moved to https://github.com/logigator/logigator
+
+## LogigatorSharedComps
 
 [![Build Status](https://travis-ci.org/logigator/logigator-shared-comps.svg?branch=master)](https://travis-ci.org/logigator/logigator-shared-comps)
 
